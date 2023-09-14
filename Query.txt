@@ -1,0 +1,28 @@
+
+// Single Insert
+// db.brands.insertOne(
+//     {
+//         name:"Laptop",
+//         discription: "Hello bangladesh",
+//         price:"124",
+
+//     }
+// )
+
+// Multiple Insert
+// db.MyEmployes.insertMany(
+//     [
+
+//         {"name":"Laptop1"},
+//         {"name":"Laptop2"},
+    
+//     ]
+// )
+
+
+// db.brands.find()
+
+// db.brands.findOne(
+//     {"name": "Laptop2"}
+//     {"name": "himu"} // null
+// )

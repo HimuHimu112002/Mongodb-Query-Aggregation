@@ -2,21 +2,24 @@
 
 use('MyShop')
 // db.help()
-
 // db.hostInfo()
-
 // db.getName() show current db name
-
 // db.getMongo() show mongodb url
-
 // db.currentOp()
-
 // db.dropDatabase() delete collection name
-
 // db.getCollectionInfos() show collection details
-
 // db.getCollectionNames()
-
 //db.getLastError()
-
 // db.getLastErrorObj()
+// db.isMaster()
+// db.getReplicationInfo()
+// db.listCommands()
+// db.logout()
+// db.printCollectionStats()
+// db.serverBuildInfo()
+// db.serverStatus()
+// db.shutdownServer()
+// db.stats()
+// db.version()
+// db.createCollection("MyEmployes")
+// db.MyEmployes.drop() // delete collection
