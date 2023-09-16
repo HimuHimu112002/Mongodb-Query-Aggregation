@@ -1,4 +1,3 @@
-
 // Single Insert
 // db.brands.insertOne(
 //     {
@@ -26,3 +25,58 @@
 //     {"name": "Laptop2"}
 //     {"name": "himu"} // null
 // )
+
+
+// db.brands.find(
+//    {} //all data show korbe
+//     {"name":0, "Laptop2":0}// 0 use korle name and Laptop2 show korbena hide hoiye thakbe
+//     {"name":1, "Laptop2":1} // 1 use korle name and Laptop2 show korbe baki data hide hoiye thakbe
+// )
+
+
+// db.brands.find(
+//    {} //all data show korbe
+//     {"name":0, "Laptop2":0}// 0 use korle name and Laptop2 show korbena hide hoiye thakbe
+//     {"name":1, "Laptop2":1} // 1 use korle name and Laptop2 show korbe baki data hide hoiye thakbe
+// )
+
+
+// Comparisom
+ db.MyEmployes.find(
+    {
+        name:{$eq:Laptop1}
+    }
+    {
+        name:{$lt:Laptop1} // less then
+    }
+    {
+        name:{$lte:Laptop1} // less then equal
+    }
+    {
+        name:{$gt:Laptop1} // greater then
+    }
+    {
+        name:{$gte:Laptop1} // greater then equal
+    }
+    {
+        name:{$nd:Laptop1} // not equal
+    }
+    {
+        name:{$in:Laptop1} // in operator
+    }
+    {
+        name:{$nin:Laptop1} // not in operator
+    }
+ )
+
+
+ // Existis mane db je value ti Existis kora hobe sei same value jodi thake tahole value dekhabe r jodi na thake tahole faka
+
+  db.brands.find({
+    price:{$exists:true}
+ })
+
+// jodi kono value double, string int, flot avabe rakha hoi db and sei specipic data jodi find kore ante chai tahol type use kore find korte hobe r se jonno type er code dhore call korte hobe jemon string er jonno code holo = 2
+  db.brands.find({
+    price:{$type:2}
+ })
