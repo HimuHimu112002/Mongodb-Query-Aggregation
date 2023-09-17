@@ -1,4 +1,4 @@
-// Single Insert
+// Single Insert =============================================
 // db.brands.insertOne(
 //     {
 //         name:"Laptop",
@@ -8,7 +8,7 @@
 //     }
 // )
 
-// Multiple Insert
+// Multiple Insert============================================
 // db.MyEmployes.insertMany(
 //     [
 
@@ -41,7 +41,7 @@
 // )
 
 
-// Comparisom
+// Comparisom ===========================================
  db.MyEmployes.find(
     {
         name:{$eq:Laptop1}
@@ -80,3 +80,67 @@
   db.brands.find({
     price:{$type:2}
  })
+
+// Evaluation Query ==================================================
+
+db.brands.find({
+    $expr:{
+        $gt:["budget", "spent"] // akhane spent er theke jei budget guli boro sei guli show korbe
+    }
+})
+
+
+db.brands.find({
+    $expr:{
+        $lt:["budget", "spent"] // akhane budget er theke jei spent guli boro sei guli show korbe
+    }
+})
+
+
+db.brands.find({
+    spent:{$mod:[2, 0]} // 2 diye vhag kore jader vag ses 0 hobe sei guli show korbe
+})
+
+db.brands.find({
+    name:{$regex:"R"} // regex er kaj holo jeto guli name ase data base brands er majhe sei name gulir majhe R latters ase kon kon name er majhe sei name guli short kore ber korbe 
+})
+
+db.brands.find({
+    $where:{this.budget > this.spent} // akhane spent er theke jei budget guli boro sei budget guli show korbe
+})
+
+db.brands.find().sort({
+    name:1 // assending order sort korbe
+})
+
+db.brands.find().sort({
+    name:-1 // Dessending order sort korbe
+})
+
+db.brands.find().count("total") // koto guli documents ase sob guli show korbe
+
+db.brands.find().limit(2) // 2 ti documents show korbe first theke
+
+db.brands.find().sort({_id:-1}).limit(2) // 2 ti documents show korbe last theke sort -1 vlaue use kore documents last theke show kore
+
+
+db.brands.distinct("name") // name property er upore depend kore amra khujte parbo je db unic value kon guli jodi same value 2/3 bar thake tahole just 1bar show korbe duplicate value sob show korbena 
+
+
+db.brands.deleteOne({
+    "_id":ObjectId("315421064651321658451")
+}) // id find kore same vlaue ti delete hoiye jabe
+
+db.brands.deleteMany({
+    salary:{$in:[200,500,300]}
+}) // salary find kore then 200,500,300 vlaue ase jeguli sei value guli delete hoiye jabe
+
+
+db.brands.updateOne({
+   { "_id":ObjectId("315421064651321658451")},
+   {
+    $set:{
+        budget: 500
+    }
+   }
+}) // id find kore same vlaue ti update hoiye jabe
